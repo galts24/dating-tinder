@@ -16,7 +16,7 @@ const PROFILES = [
     lookingFor: "Looking for someone who loves spontaneous road trips and deep conversations over coffee.",
     favoriteFood: "Sushi",
     perfectDate: "A sunset picnic followed by stargazing.",
-    photoUrl: "https://randomuser.me/api/portraits/women/0.jpg"
+    photoUrl: "emma.jpg"
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const PROFILES = [
     lookingFor: "Looking for genuine connection, not just small talk.",
     favoriteFood: "Tacos",
     perfectDate: "Hiking followed by tacos and margaritas.",
-    photoUrl: "https://randomuser.me/api/portraits/women/4.jpg"
+    photoUrl: "olivia.jpg"
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const PROFILES = [
     lookingFor: "Adventure seeker, dog lover, always up for karaoke.",
     favoriteFood: "Pizza",
     perfectDate: "Karaoke night with cheesy pizza after.",
-    photoUrl: "https://randomuser.me/api/portraits/women/12.jpg"
+    photoUrl: "sophia.jpg"
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ const PROFILES = [
     lookingFor: "Bookworm by day, salsa dancer by night.",
     favoriteFood: "Pasta",
     perfectDate: "Dancing until our feet hurt.",
-    photoUrl: "https://randomuser.me/api/portraits/women/23.jpg"
+    photoUrl: "ava.jpg"
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const PROFILES = [
     lookingFor: "Passionate about travel and terrible puns.",
     favoriteFood: "Ramen",
     perfectDate: "Exploring a new neighborhood and trying street food.",
-    photoUrl: "https://randomuser.me/api/portraits/women/31.jpg"
+    photoUrl: "mia.jpg"
   },
   {
     id: 6,
@@ -61,7 +61,7 @@ const PROFILES = [
     lookingFor: "Yoga instructor who also loves a good burger.",
     favoriteFood: "Burgers",
     perfectDate: "Sunrise yoga then brunch.",
-    photoUrl: "https://randomuser.me/api/portraits/women/45.jpg"
+    photoUrl: "isabella.jpg"
   },
   {
     id: 7,
@@ -70,7 +70,7 @@ const PROFILES = [
     lookingFor: "Aspiring chef looking for someone to taste-test.",
     favoriteFood: "Thai food",
     perfectDate: "Cooking a meal together at home.",
-    photoUrl: "https://randomuser.me/api/portraits/women/52.jpg"
+    photoUrl: "charlotte.jpg"
   },
   {
     id: 8,
@@ -79,7 +79,7 @@ const PROFILES = [
     lookingFor: "Live music addict, always has a concert to recommend.",
     favoriteFood: "Mexican food",
     perfectDate: "A concert followed by late-night tacos.",
-    photoUrl: "https://randomuser.me/api/portraits/women/67.jpg"
+    photoUrl: "amelia.jpg"
   },
   {
     id: 9,
@@ -88,7 +88,7 @@ const PROFILES = [
     lookingFor: "Beach mornings and bonfire nights are my thing.",
     favoriteFood: "Seafood",
     perfectDate: "A beach bonfire with s'mores.",
-    photoUrl: "https://randomuser.me/api/portraits/women/78.jpg"
+    photoUrl: "harper.jpg"
   },
   {
     id: 10,
@@ -97,6 +97,6 @@ const PROFILES = [
     lookingFor: "Museum hopper and coffee snob.",
     favoriteFood: "Italian food",
     perfectDate: "A gallery visit followed by an espresso crawl.",
-    photoUrl: "https://randomuser.me/api/portraits/women/89.jpg"
+    photoUrl: "evelyn.jpg"
   }
 ];
