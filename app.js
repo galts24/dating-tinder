@@ -82,7 +82,7 @@ function initLocation() {
   el.locationText.textContent = 'Finding people near you…';
 
   if (!navigator.geolocation) {
-    el.locationText.textContent = 'People near you';
+    el.locationText.textContent = 'Girls near you (geolocation not supported)';
     return;
   }
 
@@ -100,13 +100,18 @@ function onLocationSuccess(position) {
       el.locationText.textContent = place ? `Girls near ${place}` : 'Girls near you';
     })
     .catch(() => {
-      el.locationText.textContent = 'Girls near you';
+      el.locationText.textContent = 'Girls near you (geocode lookup failed)';
     });
 }
 
 function onLocationError(err) {
   console.warn('Geolocation unavailable:', err && err.message);
-  el.locationText.textContent = 'Girls near you';
+  const reason = {
+    1: 'location permission denied',
+    2: 'location unavailable',
+    3: 'location request timed out'
+  }[err && err.code];
+  el.locationText.textContent = reason ? `Girls near you (${reason})` : 'Girls near you';
 }
 
 function createCardElement(profile, position) {
