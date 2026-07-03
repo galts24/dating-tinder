@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Flikt &mdash; Meet New People</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+  <!-- ONBOARDING SCREEN -->
+  <section id="screen-onboarding" class="screen">
+    <div class="onboarding-card">
+      <div class="logo">Flikt<span class="logo-dot">.</span></div>
+      <h1>Welcome!</h1>
+      <p class="subtitle">Tell us a bit about yourself to start matching.</p>
+
+      <form id="onboarding-form">
+        <label class="field">
+          <span>Your name</span>
+          <input type="text" id="input-name" placeholder="e.g. Alex" autocomplete="off" required>
+        </label>
+        <label class="field">
+          <span>Your age</span>
+          <input type="number" id="input-age" placeholder="e.g. 27" min="18" max="99" required>
+        </label>
+        <p id="onboarding-error" class="error-text hidden"></p>
+        <button type="submit" class="btn btn-primary btn-block">Continue</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- DECK SCREEN -->
+  <section id="screen-deck" class="screen hidden">
+    <header class="deck-header">
+      <div class="deck-header-top">
+        <span class="logo small">Flikt<span class="logo-dot">.</span></span>
+      </div>
+      <h2 id="location-text">Finding people near you&hellip;</h2>
+    </header>
+
+    <div class="card-stack" id="card-stack">
+      <!-- cards injected by app.js -->
+    </div>
+
+    <div class="action-buttons">
+      <button id="btn-pass" class="round-btn round-btn-pass" aria-label="Pass" type="button">
+        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.9 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.9a1 1 0 0 0 1.41-1.41L13.41 12l4.9-4.89a1 1 0 0 0 0-1.4z"/></svg>
+      </button>
+      <button id="btn-like" class="round-btn round-btn-like" aria-label="Like" type="button">
+        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 21s-7.5-4.6-10.2-9.3C.2 8.9 1.4 5.4 4.7 4.4c2-.6 4 .1 5.3 1.9C11.3 4.5 13.3 3.8 15.3 4.4c3.3 1 4.5 4.5 2.9 7.3C19.5 16.4 12 21 12 21z"/></svg>
+      </button>
+    </div>
+  </section>
+
+</div>
+
+<!-- MATCH MODAL (overlay, independent of screens) -->
+<div id="screen-match" class="match-overlay hidden">
+  <div class="match-content">
+    <h2 class="match-title">It's a Match!</h2>
+    <div class="match-photo-wrap">
+      <img id="match-photo" src="" alt="">
+    </div>
+    <p id="match-text" class="match-subtitle"></p>
+    <button id="btn-start-chat" class="btn btn-primary btn-block" type="button">Start Chatting</button>
+    <button id="btn-keep-swiping" class="btn btn-ghost btn-block" type="button">Keep Swiping</button>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="profiles.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

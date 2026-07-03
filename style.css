@@ -1,0 +1,389 @@
+:root {
+  --gradient-primary: linear-gradient(45deg, #fd5068, #ff7854);
+  --color-like: #4ade80;
+  --color-nope: #f87171;
+  --color-text: #2d2d2d;
+  --color-muted: #8a8a8a;
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--color-text);
+  background: linear-gradient(160deg, #fff0f2 0%, #ffe3d8 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 30px 0;
+  }
+  .app-container {
+    min-height: 90vh;
+    border-radius: 28px;
+  }
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ---------- Logo ---------- */
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.logo.small {
+  font-size: 20px;
+}
+.logo-dot {
+  color: #ff7854;
+  -webkit-text-fill-color: #ff7854;
+}
+
+/* ---------- Onboarding ---------- */
+#screen-onboarding {
+  justify-content: center;
+  align-items: center;
+  padding: 32px 28px;
+}
+
+.onboarding-card {
+  width: 100%;
+  text-align: center;
+}
+
+.onboarding-card h1 {
+  margin: 18px 0 6px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  margin: 0 0 28px;
+  font-size: 14px;
+}
+
+.field {
+  display: block;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.field span {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-text);
+}
+
+.field input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1.5px solid #eee;
+  background: #fafafa;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field input:focus {
+  border-color: #ff7854;
+}
+
+.error-text {
+  color: #e33;
+  font-size: 13px;
+  margin: -6px 0 14px;
+  text-align: left;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 15px 20px;
+}
+
+.btn-block {
+  width: 100%;
+  display: block;
+  margin-top: 8px;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(253, 80, 104, 0.35);
+  transition: transform 0.15s;
+}
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-muted);
+}
+
+/* ---------- Deck ---------- */
+#screen-deck {
+  padding: 20px 20px 0;
+}
+
+.deck-header-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.deck-header {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.deck-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.card-stack {
+  position: relative;
+  flex: 1;
+  min-height: 380px;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: #ddd;
+  aspect-ratio: 3 / 4.5;
+  touch-action: none;
+  will-change: transform;
+  user-select: none;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.card-gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+  pointer-events: none;
+}
+
+.card-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.card-name-age {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.card-info p {
+  margin: 4px 0;
+  font-size: 13.5px;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+.card-stamp {
+  position: absolute;
+  top: 30px;
+  padding: 6px 14px;
+  border: 4px solid;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.stamp-like {
+  left: 20px;
+  color: var(--color-like);
+  border-color: var(--color-like);
+  transform: rotate(-20deg);
+}
+
+.stamp-nope {
+  right: 20px;
+  color: var(--color-nope);
+  border-color: var(--color-nope);
+  transform: rotate(20deg);
+}
+
+.deck-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: var(--color-muted);
+}
+
+.deck-empty h3 {
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.deck-empty .btn {
+  margin-top: 18px;
+}
+
+/* ---------- Action buttons ---------- */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  padding: 22px 0;
+}
+
+.round-btn {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.round-btn:active {
+  transform: scale(0.88);
+}
+.round-btn-pass {
+  color: var(--color-nope);
+}
+.round-btn-like {
+  color: var(--color-like);
+}
+
+/* ---------- Match modal ---------- */
+.match-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 0, 10, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+}
+
+.match-content {
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+}
+
+.match-title {
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0 0 24px;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.match-photo-wrap {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 4px solid #ff7854;
+}
+
+.match-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.match-subtitle {
+  color: #fff;
+  font-size: 15px;
+  margin: 0 0 26px;
+  opacity: 0.9;
+}
+
+.match-overlay .btn-ghost {
+  color: #fff;
+  opacity: 0.75;
+}
