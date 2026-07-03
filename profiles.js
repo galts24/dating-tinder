@@ -1,5 +1,15 @@
 const PROFILES = [
   {
+    id: 0,
+    name: "Nikol",
+    age: 27,
+    lookingFor: "Country girl at heart, looking for someone genuine who enjoys the simple things in life.",
+    favoriteFood: "Fresh farm-to-table cooking",
+    perfectDate: "A sunset tractor ride through the fields, followed by dinner under the stars.",
+    photoUrl: "nikol.jpeg",
+    online: true
+  },
+  {
     id: 1,
     name: "Emma",
     age: 24,

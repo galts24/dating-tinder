@@ -141,7 +141,7 @@ function createCardElement(profile, position) {
     <div class="card-stamp stamp-like">Like</div>
     <div class="card-stamp stamp-nope">Nope</div>
     <div class="card-info">
-      <p class="card-name-age">${profile.name}, ${profile.age}</p>
+      <p class="card-name-age">${profile.name}, ${profile.age}${profile.online ? '<span class="online-badge"><span class="online-dot"></span>Online</span>' : ''}</p>
       <p>${profile.lookingFor}</p>
       <p>🍽️ Favorite food: ${profile.favoriteFood}</p>
       <p>💕 Perfect date: ${profile.perfectDate}</p>
