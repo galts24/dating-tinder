@@ -7,7 +7,8 @@ const PROFILES = [
     favoriteFood: "Fresh farm-to-table cooking",
     perfectDate: "A sunset tractor ride through the fields, followed by dinner under the stars.",
     photoUrl: "nikol.jpeg",
-    online: true
+    online: true,
+    featured: true
   },
   {
     id: 1,

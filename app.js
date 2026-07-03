@@ -5,10 +5,32 @@ const STORAGE_KEY = 'flikt_session';
 
 const appState = {
   user: { name: null, age: null },
-  profiles: [...PROFILES],
+  profiles: [],
   currentIndex: 0,
   isAnimating: false
 };
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildShuffledProfiles() {
+  const featured = PROFILES.filter((p) => p.featured);
+  const rest = shuffle(PROFILES.filter((p) => !p.featured));
+  return [...featured, ...rest];
+}
+
+function profilesFromOrder(ids) {
+  if (!Array.isArray(ids)) return null;
+  const byId = new Map(PROFILES.map((p) => [p.id, p]));
+  const resolved = ids.map((id) => byId.get(id)).filter(Boolean);
+  return resolved.length === PROFILES.length ? resolved : null;
+}
 
 const el = {
   onboardingScreen: document.getElementById('screen-onboarding'),
@@ -37,7 +59,8 @@ function saveSession() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify({
     name: appState.user.name,
     age: appState.user.age,
-    currentIndex: appState.currentIndex
+    currentIndex: appState.currentIndex,
+    profileOrder: appState.profiles.map((p) => p.id)
   }));
 }
 
@@ -66,6 +89,8 @@ el.onboardingForm.addEventListener('submit', (e) => {
   el.onboardingError.classList.add('hidden');
   appState.user.name = name;
   appState.user.age = age;
+  appState.profiles = buildShuffledProfiles();
+  appState.currentIndex = 0;
   saveSession();
 
   showScreen('deck');
@@ -156,33 +181,18 @@ function createCardElement(profile, position) {
 }
 
 function renderCardStack() {
+  if (appState.currentIndex >= appState.profiles.length) {
+    appState.profiles = buildShuffledProfiles();
+    appState.currentIndex = 0;
+    saveSession();
+  }
+
   el.cardStack.innerHTML = '';
   const remaining = appState.profiles.slice(appState.currentIndex, appState.currentIndex + 3);
-
-  if (remaining.length === 0) {
-    renderEmptyState();
-    return;
-  }
 
   remaining.forEach((profile, i) => {
     const card = createCardElement(profile, i);
     el.cardStack.appendChild(card);
-  });
-}
-
-function renderEmptyState() {
-  const empty = document.createElement('div');
-  empty.className = 'deck-empty';
-  empty.innerHTML = `
-    <h3>No more profiles nearby</h3>
-    <p>Check back later for new people.</p>
-    <button class="btn btn-primary" id="btn-start-over" type="button">Start Over</button>
-  `;
-  el.cardStack.appendChild(empty);
-  document.getElementById('btn-start-over').addEventListener('click', () => {
-    appState.currentIndex = 0;
-    saveSession();
-    renderCardStack();
   });
 }
 
@@ -306,6 +316,7 @@ function init() {
 
   appState.user.name = session.name;
   appState.user.age = session.age;
+  appState.profiles = profilesFromOrder(session.profileOrder) || buildShuffledProfiles();
   appState.currentIndex = Number.isFinite(session.currentIndex) ? session.currentIndex : 0;
 
   showScreen('deck');

@@ -306,26 +306,6 @@ body {
   transform: rotate(20deg);
 }
 
-.deck-empty {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  color: var(--color-muted);
-}
-
-.deck-empty h3 {
-  color: var(--color-text);
-  margin-bottom: 6px;
-}
-
-.deck-empty .btn {
-  margin-top: 18px;
-}
 
 /* ---------- Action buttons ---------- */
 .action-buttons {
