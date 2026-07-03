@@ -96,7 +96,7 @@ function onLocationSuccess(position) {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      const place = data.city || data.locality || data.principalSubdivision;
+      const place = data.locality || data.city || data.principalSubdivision;
       el.locationText.textContent = place ? `Girls near ${place}` : 'Girls near you';
     })
     .catch(() => {
