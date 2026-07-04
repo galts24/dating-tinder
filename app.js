@@ -2,7 +2,7 @@ const SWIPE_THRESHOLD = 100;
 const ROTATION_DIVISOR = 20;
 const EXIT_DURATION = 300;
 const STORAGE_KEY = 'flikt_session';
-const MATCH_PROBABILITY = 0.7;
+const MATCH_PROBABILITY = 0.5;
 
 const appState = {
   user: { name: null, age: null },
