@@ -93,6 +93,10 @@ el.onboardingForm.addEventListener('submit', (e) => {
   appState.currentIndex = 0;
   saveSession();
 
+  try {
+    if (typeof fbq === 'function') fbq('track', 'CompleteRegistration');
+  } catch (_) {}
+
   showScreen('deck');
   initLocation();
   renderCardStack();
