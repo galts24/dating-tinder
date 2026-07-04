@@ -2,6 +2,7 @@ const SWIPE_THRESHOLD = 100;
 const ROTATION_DIVISOR = 20;
 const EXIT_DURATION = 300;
 const STORAGE_KEY = 'flikt_session';
+const MATCH_PROBABILITY = 0.7;
 
 const appState = {
   user: { name: null, age: null },
@@ -281,7 +282,7 @@ function commitSwipe(card, direction, deltaY) {
     renderCardStack();
     appState.isAnimating = false;
 
-    if (direction > 0) {
+    if (direction > 0 && (swipedProfile.featured || Math.random() < MATCH_PROBABILITY)) {
       showMatch(swipedProfile);
     }
   }, EXIT_DURATION);
