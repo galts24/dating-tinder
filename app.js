@@ -307,6 +307,9 @@ function hideMatch() {
 el.btnKeepSwiping.addEventListener('click', hideMatch);
 
 el.btnStartChat.addEventListener('click', () => {
+  try {
+    if (typeof fbq === 'function') fbq('track', 'Contact');
+  } catch (_) {}
   window.open(CHAT_REDIRECT_URL, '_blank');
 });
 
