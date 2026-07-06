@@ -298,7 +298,10 @@ function swipeTopCard(direction) {
 el.btnPass.addEventListener('click', () => swipeTopCard(-1));
 el.btnLike.addEventListener('click', () => swipeTopCard(1));
 
+let currentMatchProfile = null;
+
 function showMatch(profile) {
+  currentMatchProfile = profile;
   el.matchPhoto.src = profile.photoUrl;
   el.matchPhoto.alt = profile.name;
   el.matchText.textContent = `You and ${profile.name} have liked each other.`;
@@ -313,7 +316,12 @@ el.btnKeepSwiping.addEventListener('click', hideMatch);
 
 el.btnStartChat.addEventListener('click', () => {
   try {
-    if (typeof fbq === 'function') fbq('track', 'Contact');
+    if (typeof fbq === 'function') {
+      fbq('track', 'Contact', currentMatchProfile ? {
+        content_name: currentMatchProfile.name,
+        content_ids: [String(currentMatchProfile.id)]
+      } : {});
+    }
   } catch (_) {}
   window.open(CHAT_REDIRECT_URL, '_blank');
 });
